@@ -5,17 +5,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 /**
- * @author <a href="mailto:Fabian.Kiesl@unitedplanet.de">Fabian Kiesl</a>
- * @version $Revision$
- *
  * https://stackoverflow.com/questions/20387881/how-to-run-certain-task-every-day-at-a-particular-time-using-scheduledexecutorse
  */
 @SpringBootApplication
 @EnableScheduling
+@EnableMongoRepositories("de.fmk.kicknrush.mongodb")
 @ComponentScan(basePackages = "de.fmk.kicknrush.task")
 public class Application
 {

@@ -1,25 +1,21 @@
-package de.fmk.kicknrush.model;
+package de.fmk.kicknrush.openligadb.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 
-/**
- * @author <a href="mailto:Fabian.Kiesl@unitedplanet.de">Fabian Kiesl</a>
- * @version $Revision$
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonNaming(PropertyNamingStrategy.PascalCaseStrategy.class)
 public class MatchResult
 {
-	private int pointsTeam1;
-	private int pointsTeam2;
+	private int    pointsTeam1;
+	private int    pointsTeam2;
+	private int    resultOrderID;
+	private int    resultTypeID;
+	private long   resultID;
 	private String resultDescription;
-	private long resultID;
 	private String resultName;
-	private int resultOrderID;
-	private int resultTypeID;
 
 
 	public int getPointsTeam1()
@@ -103,20 +99,5 @@ public class MatchResult
 	public void setResultTypeID(int p_resultTypeID)
 	{
 		resultTypeID = p_resultTypeID;
-	}
-
-
-	@Override
-	public String toString()
-	{
-		return "MatchResult{" +
-				"pointsTeam1=" + pointsTeam1 +
-				", pointsTeam2=" + pointsTeam2 +
-				", resultDescription='" + resultDescription + '\'' +
-				", resultID=" + resultID +
-				", resultName='" + resultName + '\'' +
-				", resultOrderID=" + resultOrderID +
-				", resultTypeID=" + resultTypeID +
-				'}';
 	}
 }
