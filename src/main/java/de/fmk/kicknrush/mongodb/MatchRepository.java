@@ -17,4 +17,6 @@ public interface MatchRepository extends MongoRepository<DBMatch, String>
 	List<DBMatch> findByLeagueParam(String leagueParam);
 
 	List<DBMatch> findSeasonDayBy();
+
+	List<DBMatch> findBySeasonDay(String seasonDay);
 }

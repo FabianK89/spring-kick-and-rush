@@ -1,6 +1,7 @@
 package de.fmk.kicknrush.model;
 
 
+import de.fmk.kicknrush.mongodb.DBConstants;
 import de.fmk.kicknrush.mongodb.MatchRepository;
 import de.fmk.kicknrush.mongodb.bean.DBGoal;
 import de.fmk.kicknrush.mongodb.bean.DBLocation;
@@ -28,9 +29,30 @@ public class DataHandler
 
 	public boolean hasDataForLeague(final String leagueParam)
 	{
-		final List<DBMatch> matches = matchRepository.findByLeagueParam(leagueParam);
+		final List<DBMatch> matches;
+		final String        regEx;
+
+		regEx = "bl1\\/20[0-9]{2}";
+
+		if (leagueParam == null || !leagueParam.matches(regEx))
+			throw new IllegalArgumentException("The parameter must match the regular expression '" + regEx + "'.");
+
+		matches = matchRepository.findByLeagueParam(leagueParam);
 
 		return matches != null && !matches.isEmpty();
+	}
+
+
+	public List<DBMatch> getMatchesForSeasonDay(final String seasonDay)
+	{
+		final String regEx;
+
+		regEx = "[1-3]?[0-9]\\.\\s" + DBConstants.SEASON_DAY;
+
+		if (seasonDay == null || !seasonDay.matches(regEx))
+			throw new IllegalArgumentException("The parameter must match the regular expression '" + regEx + "'.");
+
+		return matchRepository.findBySeasonDay(seasonDay);
 	}
 
 

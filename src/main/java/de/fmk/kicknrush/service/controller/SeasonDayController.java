@@ -15,13 +15,6 @@ public class SeasonDayController
 	private DataHandler dataHandler;
 
 
-	@RequestMapping("/test")
-	public String test()
-	{
-		return "test";
-	}
-
-
 	@RequestMapping("/getSeasonDays")
 	public String[] getSeasonDays()
 	{
