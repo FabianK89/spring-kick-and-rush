@@ -1,23 +1,109 @@
 package de.fmk.kicknrush.mongodb.bean;
 
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document(collection = "teams")
 public class DBTeam
 {
+	@Id
+	private String id;
+
+	private int    defeats;
+	private int    draws;
+	private int    goals;
+	private int    goalsAgainst;
+	private int    points;
+	private int    wins;
 	private long   teamID;
 	private String shortName;
 	private String teamIconURL;
 	private String teamName;
 
 
-	public DBTeam() {}
-
-
-	public DBTeam(long teamID, String shortName, String teamIconURL, String teamName)
+	public String getId()
 	{
-		this.teamID      = teamID;
-		this.shortName   = shortName;
-		this.teamIconURL = teamIconURL;
-		this.teamName    = teamName;
+		return id;
+	}
+
+
+	public void setId(String id)
+	{
+		this.id = id;
+	}
+
+
+	public int getDefeats()
+	{
+		return defeats;
+	}
+
+
+	public void setDefeats(int defeats)
+	{
+		this.defeats = defeats;
+	}
+
+
+	public int getDraws()
+	{
+		return draws;
+	}
+
+
+	public void setDraws(int draws)
+	{
+		this.draws = draws;
+	}
+
+
+	public int getGoals()
+	{
+		return goals;
+	}
+
+
+	public void setGoals(int goals)
+	{
+		this.goals = goals;
+	}
+
+
+	public int getGoalsAgainst()
+	{
+		return goalsAgainst;
+	}
+
+
+	public void setGoalsAgainst(int goalsAgainst)
+	{
+		this.goalsAgainst = goalsAgainst;
+	}
+
+
+	public int getPoints()
+	{
+		return points;
+	}
+
+
+	public void setPoints(int points)
+	{
+		this.points = points;
+	}
+
+
+	public int getWins()
+	{
+		return wins;
+	}
+
+
+	public void setWins(int wins)
+	{
+		this.wins = wins;
 	}
 
 

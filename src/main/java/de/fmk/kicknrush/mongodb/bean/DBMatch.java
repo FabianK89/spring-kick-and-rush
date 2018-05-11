@@ -15,9 +15,9 @@ public class DBMatch
 	private DBGoal[]      goals;
 	private DBMatchResult endResult;
 	private DBMatchResult halfTimeResult;
-	private DBTeam        guestTeam;
-	private DBTeam        homeTeam;
 	private int           numberOfViewers;
+	private long          guestTeamID;
+	private long          homeTeamID;
 	private long          matchID;
 	private String        leagueParam;
 	private DBLocation    location;
@@ -85,30 +85,6 @@ public class DBMatch
 	}
 
 
-	public DBTeam getGuestTeam()
-	{
-		return guestTeam;
-	}
-
-
-	public void setGuestTeam(DBTeam guestTeam)
-	{
-		this.guestTeam = guestTeam;
-	}
-
-
-	public DBTeam getHomeTeam()
-	{
-		return homeTeam;
-	}
-
-
-	public void setHomeTeam(DBTeam homeTeam)
-	{
-		this.homeTeam = homeTeam;
-	}
-
-
 	public int getNumberOfViewers()
 	{
 		return numberOfViewers;
@@ -118,6 +94,30 @@ public class DBMatch
 	public void setNumberOfViewers(int numberOfViewers)
 	{
 		this.numberOfViewers = numberOfViewers;
+	}
+
+
+	public long getGuestTeamID()
+	{
+		return guestTeamID;
+	}
+
+
+	public void setGuestTeamID(long guestTeamID)
+	{
+		this.guestTeamID = guestTeamID;
+	}
+
+
+	public long getHomeTeamID()
+	{
+		return homeTeamID;
+	}
+
+
+	public void setHomeTeamID(long homeTeamID)
+	{
+		this.homeTeamID = homeTeamID;
 	}
 
 

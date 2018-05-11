@@ -9,20 +9,20 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 @JsonNaming(PropertyNamingStrategy.PascalCaseStrategy.class)
 public class Team
 {
-	private int    teamId;
+	private long   teamId;
 	private String shortName;
 	private String teamIconUrl;
 	private String teamName;
 
 
 
-	public int getTeamId()
+	public long getTeamId()
 	{
 		return teamId;
 	}
 
 
-	public void setTeamId(int teamId)
+	public void setTeamId(long teamId)
 	{
 		this.teamId = teamId;
 	}
