@@ -34,6 +34,32 @@ public class DataHandler
 	}
 
 
+	public List<String> getSeasonDayNames()
+	{
+		final List<DBMatch> resultList;
+		final List<String>  seasonDayNames;
+
+		resultList     = matchRepository.findSeasonDayBy();
+		seasonDayNames = new ArrayList<>();
+
+		resultList.forEach(result ->
+		{
+			if (!seasonDayNames.contains(result.getSeasonDay()))
+				seasonDayNames.add(result.getSeasonDay());
+		});
+
+		seasonDayNames.sort((o1, o2) ->
+		{
+			final int i1 = Integer.parseInt(o1.substring(0, o1.indexOf('.')));
+			final int i2 = Integer.parseInt(o2.substring(0, o2.indexOf('.')));
+
+			return Integer.compare(i1, i2);
+		});
+
+		return seasonDayNames;
+	}
+
+
 	public int fetchLeagueDataFromOpenLigaDB(final String leagueParam)
 	{
 		final Match[]       matches;

@@ -17,7 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @EnableMongoRepositories("de.fmk.kicknrush.mongodb")
-@ComponentScan(basePackages = "de.fmk.kicknrush.task")
+@ComponentScan(basePackages = { "de.fmk.kicknrush.task", "de.fmk.kicknrush.service" })
 public class Application
 {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
