@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface MatchRepository extends MongoRepository<DBMatch, String>
 {
-	DBMatch findByMatchID(long p_matchID);
+	DBMatch findByMatchID(long matchID);
 
-	List<DBMatch> findByLeagueParam(String p_leagueParam);
+	List<DBMatch> findByLeagueParam(String leagueParam);
 }

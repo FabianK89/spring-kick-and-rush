@@ -25,15 +25,15 @@ public class Match
 	private Team          team2;
 
 
-	public boolean isMatchIsFinished()
+	public boolean isMatchFinished()
 	{
 		return matchIsFinished;
 	}
 
 
-	public void setMatchIsFinished(boolean p_matchIsFinished)
+	public void setMatchIsFinished(boolean matchIsFinished)
 	{
-		matchIsFinished = p_matchIsFinished;
+		this.matchIsFinished = matchIsFinished;
 	}
 
 
@@ -43,9 +43,9 @@ public class Match
 	}
 
 
-	public void setGoals(Goal[] p_goals)
+	public void setGoals(Goal[] goals)
 	{
-		goals = p_goals;
+		this.goals = goals;
 	}
 
 
@@ -55,9 +55,9 @@ public class Match
 	}
 
 
-	public void setGroup(Group p_group)
+	public void setGroup(Group group)
 	{
-		group = p_group;
+		this.group = group;
 	}
 
 
@@ -67,9 +67,9 @@ public class Match
 	}
 
 
-	public void setNumberOfViewers(int p_numberOfViewers)
+	public void setNumberOfViewers(int numberOfViewers)
 	{
-		numberOfViewers = p_numberOfViewers;
+		this.numberOfViewers = numberOfViewers;
 	}
 
 
@@ -79,9 +79,9 @@ public class Match
 	}
 
 
-	public void setLocation(Location p_location)
+	public void setLocation(Location location)
 	{
-		location = p_location;
+		this.location = location;
 	}
 
 
@@ -91,9 +91,9 @@ public class Match
 	}
 
 
-	public void setLeagueId(long p_leagueId)
+	public void setLeagueId(long leagueId)
 	{
-		leagueId = p_leagueId;
+		this.leagueId = leagueId;
 	}
 
 
@@ -103,9 +103,9 @@ public class Match
 	}
 
 
-	public void setMatchID(long p_matchID)
+	public void setMatchID(long matchID)
 	{
-		matchID = p_matchID;
+		this.matchID = matchID;
 	}
 
 
@@ -115,9 +115,9 @@ public class Match
 	}
 
 
-	public void setMatchResults(MatchResult[] p_matchResults)
+	public void setMatchResults(MatchResult[] matchResults)
 	{
-		matchResults = p_matchResults;
+		this.matchResults = matchResults;
 	}
 
 
@@ -127,9 +127,9 @@ public class Match
 	}
 
 
-	public void setLastUpdateDateTime(String p_lastUpdateDateTime)
+	public void setLastUpdateDateTime(String lastUpdateDateTime)
 	{
-		lastUpdateDateTime = p_lastUpdateDateTime;
+		this.lastUpdateDateTime = lastUpdateDateTime;
 	}
 
 
@@ -139,9 +139,9 @@ public class Match
 	}
 
 
-	public void setLeagueName(String p_leagueName)
+	public void setLeagueName(String leagueName)
 	{
-		leagueName = p_leagueName;
+		this.leagueName = leagueName;
 	}
 
 
@@ -151,9 +151,9 @@ public class Match
 	}
 
 
-	public void setMatchDateTimeUTC(String p_matchDateTimeUTC)
+	public void setMatchDateTimeUTC(String matchDateTimeUTC)
 	{
-		matchDateTimeUTC = p_matchDateTimeUTC;
+		this.matchDateTimeUTC = matchDateTimeUTC;
 	}
 
 
@@ -163,9 +163,9 @@ public class Match
 	}
 
 
-	public void setTimeZoneID(String p_timeZoneID)
+	public void setTimeZoneID(String timeZoneID)
 	{
-		timeZoneID = p_timeZoneID;
+		this.timeZoneID = timeZoneID;
 	}
 
 
@@ -175,9 +175,9 @@ public class Match
 	}
 
 
-	public void setTeam1(Team p_team1)
+	public void setTeam1(Team team1)
 	{
-		team1 = p_team1;
+		this.team1 = team1;
 	}
 
 
@@ -187,8 +187,8 @@ public class Match
 	}
 
 
-	public void setTeam2(Team p_team2)
+	public void setTeam2(Team team2)
 	{
-		team2 = p_team2;
+		this.team2 = team2;
 	}
 }

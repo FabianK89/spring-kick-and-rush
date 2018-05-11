@@ -12,12 +12,12 @@ public class DBTeam
 	public DBTeam() {}
 
 
-	public DBTeam(long p_teamID, String p_shortName, String p_teamIconURL, String p_teamName)
+	public DBTeam(long teamID, String shortName, String teamIconURL, String teamName)
 	{
-		teamID      = p_teamID;
-		shortName   = p_shortName;
-		teamIconURL = p_teamIconURL;
-		teamName    = p_teamName;
+		this.teamID      = teamID;
+		this.shortName   = shortName;
+		this.teamIconURL = teamIconURL;
+		this.teamName    = teamName;
 	}
 
 
@@ -27,9 +27,9 @@ public class DBTeam
 	}
 
 
-	public void setTeamID(long p_teamID)
+	public void setTeamID(long teamID)
 	{
-		teamID = p_teamID;
+		this.teamID = teamID;
 	}
 
 
@@ -39,9 +39,9 @@ public class DBTeam
 	}
 
 
-	public void setShortName(String p_shortName)
+	public void setShortName(String shortName)
 	{
-		shortName = p_shortName;
+		this.shortName = shortName;
 	}
 
 
@@ -51,9 +51,9 @@ public class DBTeam
 	}
 
 
-	public void setTeamIconURL(String p_teamIconURL)
+	public void setTeamIconURL(String teamIconURL)
 	{
-		teamIconURL = p_teamIconURL;
+		this.teamIconURL = teamIconURL;
 	}
 
 
@@ -63,8 +63,8 @@ public class DBTeam
 	}
 
 
-	public void setTeamName(String p_teamName)
+	public void setTeamName(String teamName)
 	{
-		teamName = p_teamName;
+		this.teamName = teamName;
 	}
 }

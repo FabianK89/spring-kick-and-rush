@@ -22,9 +22,9 @@ public class Team
 	}
 
 
-	public void setTeamId(int p_teamId)
+	public void setTeamId(int teamId)
 	{
-		teamId = p_teamId;
+		this.teamId = teamId;
 	}
 
 
@@ -34,9 +34,9 @@ public class Team
 	}
 
 
-	public void setShortName(String p_shortName)
+	public void setShortName(String shortName)
 	{
-		shortName = p_shortName;
+		this.shortName = shortName;
 	}
 
 
@@ -46,9 +46,9 @@ public class Team
 	}
 
 
-	public void setTeamIconUrl(String p_teamIconUrl)
+	public void setTeamIconUrl(String teamIconUrl)
 	{
-		teamIconUrl = p_teamIconUrl;
+		this.teamIconUrl = teamIconUrl;
 	}
 
 
@@ -58,8 +58,8 @@ public class Team
 	}
 
 
-	public void setTeamName(String p_teamName)
+	public void setTeamName(String teamName)
 	{
-		teamName = p_teamName;
+		this.teamName = teamName;
 	}
 }

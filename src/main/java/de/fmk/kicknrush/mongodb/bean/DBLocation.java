@@ -7,10 +7,10 @@ public class DBLocation
 	private String stadium;
 
 
-	public DBLocation(String p_city, String p_stadium)
+	public DBLocation(String city, String stadium)
 	{
-		city    = p_city;
-		stadium = p_stadium;
+		this.city    = city;
+		this.stadium = stadium;
 	}
 
 
@@ -20,9 +20,9 @@ public class DBLocation
 	}
 
 
-	public void setCity(String p_city)
+	public void setCity(String city)
 	{
-		city = p_city;
+		this.city = city;
 	}
 
 
@@ -32,8 +32,8 @@ public class DBLocation
 	}
 
 
-	public void setStadium(String p_stadium)
+	public void setStadium(String stadium)
 	{
-		stadium = p_stadium;
+		this.stadium = stadium;
 	}
 }

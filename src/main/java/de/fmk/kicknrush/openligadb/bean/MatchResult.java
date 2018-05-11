@@ -24,9 +24,9 @@ public class MatchResult
 	}
 
 
-	public void setPointsTeam1(int p_pointsTeam1)
+	public void setPointsTeam1(int pointsTeam1)
 	{
-		pointsTeam1 = p_pointsTeam1;
+		this.pointsTeam1 = pointsTeam1;
 	}
 
 
@@ -36,9 +36,9 @@ public class MatchResult
 	}
 
 
-	public void setPointsTeam2(int p_pointsTeam2)
+	public void setPointsTeam2(int pointsTeam2)
 	{
-		pointsTeam2 = p_pointsTeam2;
+		this.pointsTeam2 = pointsTeam2;
 	}
 
 
@@ -48,9 +48,9 @@ public class MatchResult
 	}
 
 
-	public void setResultDescription(String p_resultDescription)
+	public void setResultDescription(String resultDescription)
 	{
-		resultDescription = p_resultDescription;
+		this.resultDescription = resultDescription;
 	}
 
 
@@ -60,9 +60,9 @@ public class MatchResult
 	}
 
 
-	public void setResultID(long p_resultID)
+	public void setResultID(long resultID)
 	{
-		resultID = p_resultID;
+		this.resultID = resultID;
 	}
 
 
@@ -72,9 +72,9 @@ public class MatchResult
 	}
 
 
-	public void setResultName(String p_resultName)
+	public void setResultName(String resultName)
 	{
-		resultName = p_resultName;
+		this.resultName = resultName;
 	}
 
 
@@ -84,9 +84,9 @@ public class MatchResult
 	}
 
 
-	public void setResultOrderID(int p_resultOrderID)
+	public void setResultOrderID(int resultOrderID)
 	{
-		resultOrderID = p_resultOrderID;
+		this.resultOrderID = resultOrderID;
 	}
 
 
@@ -96,8 +96,8 @@ public class MatchResult
 	}
 
 
-	public void setResultTypeID(int p_resultTypeID)
+	public void setResultTypeID(int resultTypeID)
 	{
-		resultTypeID = p_resultTypeID;
+		this.resultTypeID = resultTypeID;
 	}
 }

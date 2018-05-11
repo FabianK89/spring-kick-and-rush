@@ -27,9 +27,9 @@ public class Goal
 	}
 
 
-	public void setOvertime(boolean p_overtime)
+	public void setOvertime(boolean overtime)
 	{
-		isOvertime = p_overtime;
+		this.isOvertime = overtime;
 	}
 
 
@@ -39,9 +39,9 @@ public class Goal
 	}
 
 
-	public void setOwnGoal(boolean p_ownGoal)
+	public void setOwnGoal(boolean ownGoal)
 	{
-		isOwnGoal = p_ownGoal;
+		this.isOwnGoal = ownGoal;
 	}
 
 
@@ -51,9 +51,9 @@ public class Goal
 	}
 
 
-	public void setPenalty(boolean p_penalty)
+	public void setPenalty(boolean penalty)
 	{
-		isPenalty = p_penalty;
+		this.isPenalty = penalty;
 	}
 
 
@@ -63,9 +63,9 @@ public class Goal
 	}
 
 
-	public void setMatchMinute(int p_matchMinute)
+	public void setMatchMinute(int matchMinute)
 	{
-		matchMinute = p_matchMinute;
+		this.matchMinute = matchMinute;
 	}
 
 
@@ -75,9 +75,9 @@ public class Goal
 	}
 
 
-	public void setScoreTeam1(int p_scoreTeam1)
+	public void setScoreTeam1(int scoreTeam1)
 	{
-		scoreTeam1 = p_scoreTeam1;
+		this.scoreTeam1 = scoreTeam1;
 	}
 
 
@@ -87,9 +87,9 @@ public class Goal
 	}
 
 
-	public void setScoreTeam2(int p_scoreTeam2)
+	public void setScoreTeam2(int scoreTeam2)
 	{
-		scoreTeam2 = p_scoreTeam2;
+		this.scoreTeam2 = scoreTeam2;
 	}
 
 
@@ -99,9 +99,9 @@ public class Goal
 	}
 
 
-	public void setGoalGetterID(long p_goalGetterID)
+	public void setGoalGetterID(long goalGetterID)
 	{
-		goalGetterID = p_goalGetterID;
+		this.goalGetterID = goalGetterID;
 	}
 
 
@@ -111,9 +111,9 @@ public class Goal
 	}
 
 
-	public void setGoalID(long p_goalID)
+	public void setGoalID(long goalID)
 	{
-		goalID = p_goalID;
+		this.goalID = goalID;
 	}
 
 
@@ -123,8 +123,8 @@ public class Goal
 	}
 
 
-	public void setGoalGetterName(String p_goalGetterName)
+	public void setGoalGetterName(String goalGetterName)
 	{
-		goalGetterName = p_goalGetterName;
+		this.goalGetterName = goalGetterName;
 	}
 }

@@ -1,7 +1,9 @@
 package de.fmk.kicknrush.app;
 
+import de.fmk.kicknrush.model.DataHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,6 +21,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class Application
 {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+
+	@Autowired
+	private DataHandler dataHandler;
 
 
 	public static void main(String[] args)

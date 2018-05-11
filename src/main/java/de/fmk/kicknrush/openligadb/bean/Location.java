@@ -20,9 +20,9 @@ public class Location
 	}
 
 
-	public void setLocationCity(String p_locationCity)
+	public void setLocationCity(String locationCity)
 	{
-		locationCity = p_locationCity;
+		this.locationCity = locationCity;
 	}
 
 
@@ -32,9 +32,9 @@ public class Location
 	}
 
 
-	public void setLocationID(long p_locationID)
+	public void setLocationID(long locationID)
 	{
-		locationID = p_locationID;
+		this.locationID = locationID;
 	}
 
 
@@ -44,8 +44,8 @@ public class Location
 	}
 
 
-	public void setLocationStadium(String p_locationStadium)
+	public void setLocationStadium(String locationStadium)
 	{
-		locationStadium = p_locationStadium;
+		this.locationStadium = locationStadium;
 	}
 }

@@ -2,9 +2,13 @@ package de.fmk.kicknrush.model;
 
 
 import de.fmk.kicknrush.mongodb.MatchRepository;
+import de.fmk.kicknrush.mongodb.bean.DBGoal;
+import de.fmk.kicknrush.mongodb.bean.DBLocation;
 import de.fmk.kicknrush.mongodb.bean.DBMatch;
+import de.fmk.kicknrush.mongodb.bean.DBMatchResult;
 import de.fmk.kicknrush.mongodb.bean.DBTeam;
 import de.fmk.kicknrush.openligadb.OpenLigaDBConstants;
+import de.fmk.kicknrush.openligadb.bean.Goal;
 import de.fmk.kicknrush.openligadb.bean.Match;
 import de.fmk.kicknrush.openligadb.bean.MatchResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,31 +26,42 @@ public class DataHandler
 	private MatchRepository matchRepository;
 
 
-	public boolean hasDataForLeague(final String p_leagueParam)
+	public boolean hasDataForLeague(final String leagueParam)
 	{
-		final List<DBMatch> matches = matchRepository.findByLeagueParam(p_leagueParam);
+		final List<DBMatch> matches = matchRepository.findByLeagueParam(leagueParam);
 
 		return matches != null && !matches.isEmpty();
 	}
 
 
-	public int fetchDataFromOpenLigaDB(final String p_leagueParam)
+	public int fetchLeagueDataFromOpenLigaDB(final String leagueParam)
 	{
-		final List<DBMatch> dbMatches;
 		final Match[]       matches;
 		final RestTemplate  restTemplate;
 
-		dbMatches    = new ArrayList<>();
 		restTemplate = new RestTemplate();
-		matches      = restTemplate.getForObject(OpenLigaDBConstants.GET_MATCH_DATA.concat(p_leagueParam), Match[].class);
+		matches      = restTemplate.getForObject(OpenLigaDBConstants.GET_MATCH_DATA.concat(leagueParam), Match[].class);
+
+		return saveMatchesToDataBase(leagueParam, matches);
+	}
+
+
+	private int saveMatchesToDataBase(final String leagueParam, final Match[] matches)
+	{
+		final List<DBMatch> dbMatches;
+
+		dbMatches = new ArrayList<>();
 
 		for (final Match match : matches)
 		{
-			final DBMatch dbMatch;
+			final DBMatch      dbMatch;
+			final List<DBGoal> dbGoals;
+
+			dbGoals = new ArrayList<>();
 
 			dbMatch = new DBMatch();
-			dbMatch.setLeagueParam(p_leagueParam);
-			dbMatch.setFinished(match.isMatchIsFinished());
+			dbMatch.setLeagueParam(leagueParam);
+			dbMatch.setFinished(match.isMatchFinished());
 			dbMatch.setMatchDateTimeUTC(match.getMatchDateTimeUTC());
 			dbMatch.setMatchID(match.getMatchID());
 			dbMatch.setSeasonDay(match.getGroup().getGroupName());
@@ -58,11 +73,30 @@ public class DataHandler
 			                                match.getTeam2().getShortName(),
 			                                match.getTeam2().getTeamIconUrl(),
 			                                match.getTeam2().getTeamName()));
+			dbMatch.setNumberOfViewers(match.getNumberOfViewers());
+			dbMatch.setLocation(new DBLocation(match.getLocation().getLocationCity(),
+			                                   match.getLocation().getLocationStadium()));
 
 			for (final MatchResult matchResult : match.getMatchResults())
 			{
+				final DBMatchResult result = new DBMatchResult(matchResult.getPointsTeam1(), matchResult.getPointsTeam2());
 
+				if (matchResult.getResultTypeID() == 1)
+					dbMatch.setHalfTimeResult(result);
+				else
+					dbMatch.setEndResult(result);
 			}
+
+			for (final Goal goal : match.getGoals())
+			{
+				dbGoals.add(new DBGoal(goal.isPenalty(),
+				                       goal.getMatchMinute(),
+				                       goal.getScoreTeam2(),
+				                       goal.getScoreTeam1(),
+				                       goal.getGoalGetterName()));
+			}
+
+			dbMatch.setGoals(dbGoals.toArray(new DBGoal[0]));
 
 			dbMatches.add(dbMatch);
 		}

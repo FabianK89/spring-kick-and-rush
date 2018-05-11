@@ -31,9 +31,9 @@ public class DBMatch
 	}
 
 
-	public void setId(String p_id)
+	public void setId(String id)
 	{
-		id = p_id;
+		this.id = id;
 	}
 
 
@@ -43,9 +43,9 @@ public class DBMatch
 	}
 
 
-	public void setFinished(boolean p_finished)
+	public void setFinished(boolean finished)
 	{
-		isFinished = p_finished;
+		this.isFinished = finished;
 	}
 
 
@@ -55,9 +55,9 @@ public class DBMatch
 	}
 
 
-	public void setGoals(DBGoal[] p_goals)
+	public void setGoals(DBGoal[] goals)
 	{
-		goals = p_goals;
+		this.goals = goals;
 	}
 
 
@@ -67,9 +67,9 @@ public class DBMatch
 	}
 
 
-	public void setEndResult(DBMatchResult p_endResult)
+	public void setEndResult(DBMatchResult endResult)
 	{
-		endResult = p_endResult;
+		this.endResult = endResult;
 	}
 
 
@@ -79,9 +79,9 @@ public class DBMatch
 	}
 
 
-	public void setHalfTimeResult(DBMatchResult p_halfTimeResult)
+	public void setHalfTimeResult(DBMatchResult halfTimeResult)
 	{
-		halfTimeResult = p_halfTimeResult;
+		this.halfTimeResult = halfTimeResult;
 	}
 
 
@@ -91,9 +91,9 @@ public class DBMatch
 	}
 
 
-	public void setGuestTeam(DBTeam p_guestTeam)
+	public void setGuestTeam(DBTeam guestTeam)
 	{
-		guestTeam = p_guestTeam;
+		this.guestTeam = guestTeam;
 	}
 
 
@@ -103,9 +103,9 @@ public class DBMatch
 	}
 
 
-	public void setHomeTeam(DBTeam p_homeTeam)
+	public void setHomeTeam(DBTeam homeTeam)
 	{
-		homeTeam = p_homeTeam;
+		this.homeTeam = homeTeam;
 	}
 
 
@@ -115,9 +115,9 @@ public class DBMatch
 	}
 
 
-	public void setNumberOfViewers(int p_numberOfViewers)
+	public void setNumberOfViewers(int numberOfViewers)
 	{
-		numberOfViewers = p_numberOfViewers;
+		this.numberOfViewers = numberOfViewers;
 	}
 
 
@@ -127,9 +127,9 @@ public class DBMatch
 	}
 
 
-	public void setMatchID(long p_matchID)
+	public void setMatchID(long matchID)
 	{
-		matchID = p_matchID;
+		this.matchID = matchID;
 	}
 
 
@@ -139,9 +139,9 @@ public class DBMatch
 	}
 
 
-	public void setLeagueParam(String p_leagueParam)
+	public void setLeagueParam(String leagueParam)
 	{
-		leagueParam = p_leagueParam;
+		this.leagueParam = leagueParam;
 	}
 
 
@@ -151,9 +151,9 @@ public class DBMatch
 	}
 
 
-	public void setLocation(DBLocation p_location)
+	public void setLocation(DBLocation location)
 	{
-		location = p_location;
+		this.location = location;
 	}
 
 
@@ -163,9 +163,9 @@ public class DBMatch
 	}
 
 
-	public void setMatchDateTimeUTC(String p_matchDateTimeUTC)
+	public void setMatchDateTimeUTC(String matchDateTimeUTC)
 	{
-		matchDateTimeUTC = p_matchDateTimeUTC;
+		this.matchDateTimeUTC = matchDateTimeUTC;
 	}
 
 
@@ -175,8 +175,8 @@ public class DBMatch
 	}
 
 
-	public void setSeasonDay(String p_seasonDay)
+	public void setSeasonDay(String seasonDay)
 	{
-		seasonDay = p_seasonDay;
+		this.seasonDay = seasonDay;
 	}
 }

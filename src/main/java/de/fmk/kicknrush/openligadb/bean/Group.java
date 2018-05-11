@@ -20,9 +20,9 @@ public class Group
 	}
 
 
-	public void setGroupID(long p_groupID)
+	public void setGroupID(long groupID)
 	{
-		groupID = p_groupID;
+		this.groupID = groupID;
 	}
 
 
@@ -32,9 +32,9 @@ public class Group
 	}
 
 
-	public void setGroupName(String p_groupName)
+	public void setGroupName(String groupName)
 	{
-		groupName = p_groupName;
+		this.groupName = groupName;
 	}
 
 
@@ -44,8 +44,8 @@ public class Group
 	}
 
 
-	public void setGroupOrderID(int p_groupOrderID)
+	public void setGroupOrderID(int groupOrderID)
 	{
-		groupOrderID = p_groupOrderID;
+		this.groupOrderID = groupOrderID;
 	}
 }

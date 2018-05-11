@@ -26,7 +26,7 @@ public class MatchdayTask
 
 
 //	@Scheduled(cron = "0 0 0 * 7,8 TUE")
-	@Scheduled(cron = "0 07-08 17 * * *")
+	@Scheduled(cron = "0 0/5 * * * *")
 	public void createInitialLeagueMatches()
 	{
 		final int       matchesAdded;
@@ -35,7 +35,8 @@ public class MatchdayTask
 		final String    webserviceURL;
 
 		date        = LocalDate.now();
-		leagueParam = "bl1/" + 2017; // TODO change date
+		// TODO take current year (date.getYear)
+		leagueParam = "bl1/" + 2017;
 
 		LOGGER.info("Check if data for league {} is already available in the database.", leagueParam);
 
@@ -49,14 +50,14 @@ public class MatchdayTask
 
 		LOGGER.info("Fetch data from {}.", webserviceURL);
 
-		matchesAdded = dataHandler.fetchDataFromOpenLigaDB(leagueParam);
+		matchesAdded = dataHandler.fetchLeagueDataFromOpenLigaDB(leagueParam);
 
 		LOGGER.info("{} matches were successfully added to the database.", matchesAdded);
 	}
 
 
-	@Scheduled(cron = "0 18 17 * * *")
-	public void startFetchingMatchData()
+	@Scheduled(cron = "0 0 0 * * *")
+	public void fetchMatchData()
 	{
 		RestTemplate restTemplate = new RestTemplate();
 

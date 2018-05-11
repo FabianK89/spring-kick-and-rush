@@ -7,10 +7,10 @@ public class DBMatchResult
 	private int pointsHome;
 
 
-	public DBMatchResult(int p_pointsHome, int p_pointsGuest)
+	public DBMatchResult(int pointsHome, int pointsGuest)
 	{
-		pointsHome  = p_pointsHome;
-		pointsGuest = p_pointsGuest;
+		this.pointsHome  = pointsHome;
+		this.pointsGuest = pointsGuest;
 	}
 
 
@@ -20,9 +20,9 @@ public class DBMatchResult
 	}
 
 
-	public void setPointsHome(int p_pointsHome)
+	public void setPointsHome(int pointsHome)
 	{
-		pointsHome = p_pointsHome;
+		this.pointsHome = pointsHome;
 	}
 
 
@@ -32,8 +32,8 @@ public class DBMatchResult
 	}
 
 
-	public void setPointsGuest(int p_pointsGuest)
+	public void setPointsGuest(int pointsGuest)
 	{
-		pointsGuest = p_pointsGuest;
+		this.pointsGuest = pointsGuest;
 	}
 }
