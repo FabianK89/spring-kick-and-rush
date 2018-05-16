@@ -14,6 +14,8 @@ import de.fmk.kicknrush.openligadb.bean.Goal;
 import de.fmk.kicknrush.openligadb.bean.Match;
 import de.fmk.kicknrush.openligadb.bean.MatchResult;
 import de.fmk.kicknrush.openligadb.bean.Team;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -27,6 +29,8 @@ import java.util.Map;
 @Component
 public class DataHandler
 {
+	private static final Logger LOGGER = LoggerFactory.getLogger(DataHandler.class);
+
 	@Autowired
 	private MatchRepository matchRepository;
 	@Autowired
@@ -88,6 +92,12 @@ public class DataHandler
 	}
 
 
+	public List<DBTeam> getTeams()
+	{
+		return teamRepository.findAll();
+	}
+
+
 	public int fetchLeagueDataFromOpenLigaDB(final String leagueParam)
 	{
 		final Match[]       matches;
@@ -96,12 +106,13 @@ public class DataHandler
 		restTemplate = new RestTemplate();
 		matches      = restTemplate.getForObject(OpenLigaDBConstants.GET_MATCH_DATA.concat(leagueParam), Match[].class);
 
-		return saveMatchesToDataBase(leagueParam, matches);
+		return saveMatchesAndTeamsToDataBase(leagueParam, matches);
 	}
 
 
-	private int saveMatchesToDataBase(final String leagueParam, final Match[] matches)
+	private int saveMatchesAndTeamsToDataBase(final String leagueParam, final Match[] matches)
 	{
+		final int               addedTeams;
 		final List<DBMatch>     dbMatches;
 		final Map<Long, DBTeam> dbTeams;
 
@@ -159,7 +170,9 @@ public class DataHandler
 			dbMatches.add(dbMatch);
 		}
 
-		teamRepository.saveAll(dbTeams.values());
+		addedTeams = teamRepository.saveAll(dbTeams.values()).size();
+
+		LOGGER.info("{} were successfully added to the database.", addedTeams);
 
 		return matchRepository.saveAll(dbMatches).size();
 	}
