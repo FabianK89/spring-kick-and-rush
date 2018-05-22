@@ -1,14 +1,19 @@
 package de.fmk.kicknrush.app;
 
-import de.fmk.kicknrush.model.DataHandler;
+import de.fmk.kicknrush.model.UserDataHandler;
+import de.fmk.kicknrush.mongodb.bean.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
+
+import java.util.List;
 
 
 /**
@@ -23,46 +28,30 @@ public class Application
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
 	@Autowired
-	private DataHandler dataHandler;
+	private UserDataHandler userDataHandler;
 
 
 	public static void main(String[] args)
 	{
 		SpringApplication.run(Application.class);
-
-		LOGGER.info("Test");
 	}
 
 
-//	@Bean
-//	public RestTemplate restTemplate(RestTemplateBuilder builder)
-//	{
-//		return builder.build();
-//	}
+	@Bean
+	public CommandLineRunner run()
+	{
+		return args ->
+		{
+			final List<User> userList;
 
+			LOGGER.info("Check for users.");
 
-//	@Bean
-//	public CommandLineRunner run(RestTemplate restTemplate) throws Exception
-//	{
-//		return args -> {
-//			final Thread thread = new Thread(() ->
-//			{
-//				try
-//				{
-//					Thread.sleep(60000L);
-//				}
-//				catch (InterruptedException p_e)
-//				{
-//					LOGGER.error(p_e.getMessage(), p_e);
-//				}
-//
-//				Team[] teams = restTemplate.getForObject("https://www.openligadb.de/api/getavailableteams/bl1/2016", Team[].class);
-//
-//				for (final Team team : teams)
-//					LOGGER.info(team.toString());
-//			});
-//
-//			thread.start();
-//		};
-//	}
+			userList = userDataHandler.getAllUser();
+
+			if (userList.isEmpty())
+				userDataHandler.createUsers();
+			else
+				LOGGER.info("Users already exist in database.");
+		};
+	}
 }
