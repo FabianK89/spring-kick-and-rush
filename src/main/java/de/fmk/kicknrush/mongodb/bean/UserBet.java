@@ -3,17 +3,20 @@ package de.fmk.kicknrush.mongodb.bean;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class DBMatchResult
+public class UserBet
 {
-	private int pointsGuest;
-	private int pointsHome;
+	private int    goalsGuest;
+	private int    goalsHome;
+	private String userID;
 }

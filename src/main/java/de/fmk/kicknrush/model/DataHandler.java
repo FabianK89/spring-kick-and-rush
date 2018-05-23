@@ -9,6 +9,7 @@ import de.fmk.kicknrush.mongodb.bean.DBLocation;
 import de.fmk.kicknrush.mongodb.bean.DBMatch;
 import de.fmk.kicknrush.mongodb.bean.DBMatchResult;
 import de.fmk.kicknrush.mongodb.bean.DBTeam;
+import de.fmk.kicknrush.mongodb.bean.UserBet;
 import de.fmk.kicknrush.openligadb.OpenLigaDBConstants;
 import de.fmk.kicknrush.openligadb.bean.Goal;
 import de.fmk.kicknrush.openligadb.bean.Match;
@@ -107,6 +108,19 @@ public class DataHandler
 		matches      = restTemplate.getForObject(OpenLigaDBConstants.GET_MATCH_DATA.concat(leagueParam), Match[].class);
 
 		return saveMatchesAndTeamsToDataBase(leagueParam, matches);
+	}
+
+
+	public boolean updateUserBet(final String matchID, final String userID, final int goalsHome, final int goalsGuest)
+	{
+		final UserBet userBet;
+
+		userBet = new UserBet(goalsGuest, goalsHome, userID);
+
+		if (matchRepository.removeBet(matchID, userID))
+			return matchRepository.setBet(matchID, userBet);
+
+		return false;
 	}
 
 
