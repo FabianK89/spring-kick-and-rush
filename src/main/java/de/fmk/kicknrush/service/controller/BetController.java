@@ -2,6 +2,7 @@ package de.fmk.kicknrush.service.controller;
 
 import de.fmk.kicknrush.model.DataHandler;
 import de.fmk.kicknrush.service.bean.Bet;
+import de.fmk.kicknrush.util.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +28,20 @@ public class BetController
 	@RequestMapping(value = "/saveBet", method = RequestMethod.POST)
 	public ResponseEntity<String> saveBet(@RequestBody Bet bet)
 	{
-		final boolean result;
+		final Status status;
 
 		LOGGER.info("Try to update the bet of the user with id '{}'.", bet.getUserID());
 
-		result = dataHandler.updateUserBet(bet.getMatchID(), bet.getUserID(), bet.getGoalsHome(), bet.getGoalsGuest());
+		status = dataHandler.updateUserBet(bet.getMatchID(), bet.getUserID(), bet.getGoalsHome(), bet.getGoalsGuest());
 
-		if (result)
+		if (status == Status.OK)
 		{
 			LOGGER.info("Updating the bet of the user with id '{}' was successful.", bet.getUserID());
 			return ResponseEntity.status(HttpStatus.CREATED).build();
+		}
+		else if (status == Status.REJECTED)
+		{
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 		}
 
 		LOGGER.info("No bet has been updated.");

@@ -15,6 +15,7 @@ import de.fmk.kicknrush.openligadb.bean.Goal;
 import de.fmk.kicknrush.openligadb.bean.Match;
 import de.fmk.kicknrush.openligadb.bean.MatchResult;
 import de.fmk.kicknrush.openligadb.bean.Team;
+import de.fmk.kicknrush.util.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,16 +112,28 @@ public class DataHandler
 	}
 
 
-	public boolean updateUserBet(final String matchID, final String userID, final int goalsHome, final int goalsGuest)
+	public Status updateUserBet(final String matchID, final String userID, final int goalsHome, final int goalsGuest)
 	{
 		final UserBet userBet;
 
+		Status status;
+
 		userBet = new UserBet(goalsGuest, goalsHome, userID);
+		status  = matchRepository.removeBet(matchID, userID);
 
-		if (matchRepository.removeBet(matchID, userID))
-			return matchRepository.setBet(matchID, userBet);
+		if (status == Status.DELETED || status == Status.NOT_FOUND)
+		{
+			status = matchRepository.setBet(matchID, userBet);
 
-		return false;
+			if (status == Status.CREATED)
+				return Status.OK;
+		}
+		else if (status == Status.REJECTED)
+		{
+			return Status.REJECTED;
+		}
+
+		return Status.ERROR;
 	}
 
 
